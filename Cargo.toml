@@ -1,0 +1,27 @@
+[package]
+name = "elden-ring-postfx"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+authors = ["Luna(a492219408)"]
+license = "GPL-3.0-only"
+description = "Configurable GPARAM post-processing overrides for Elden Ring via ModEngine3"
+publish = false
+
+[lib]
+name = "elden_ring_postfx"
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+opt-level = "s"
+strip = "symbols"
+# Keep unwind so a Rust parser panic cannot cross the native callback boundary.
+panic = "unwind"
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[lints.clippy]
+undocumented_unsafe_blocks = "deny"

@@ -1,0 +1,9 @@
+/target/
+/dist/
+*.log
+*.pdb
+*.gparam
+*.dcx
+*.exe
+*.dll
+/.idea/
