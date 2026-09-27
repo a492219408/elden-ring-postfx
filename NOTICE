@@ -1,0 +1,13 @@
+Elden Ring Native PostFX (EldenRingPostFX)
+Copyright (C) 2026 Luna(a492219408)
+
+Original project code is licensed under GPL-3.0-only.
+The complete license is in LICENSE (LICENSE.txt in the runtime package).
+The software is provided without warranty; see that license for details.
+
+Rust standard library components retain their respective licenses and notices.
+See third_party/Rust-COPYRIGHT-library.html in source distributions, or
+Rust-COPYRIGHT-library.html in the runtime package.
+
+This project does not grant rights to game assets or third-party works.
+See THIRD_PARTY_NOTICES.md (THIRD_PARTY_NOTICES.txt in the runtime package).

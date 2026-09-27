@@ -7,3 +7,6 @@
 *.exe
 *.dll
 /.idea/
+**/AGENTS.md
+/视觉测试/
+__pycache__/

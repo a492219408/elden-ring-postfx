@@ -1,12 +1,18 @@
-# 来源、许可与致谢
+# Third-party notices and acknowledgements
 
-EldenRingPostFX 的原创 Rust 实现由 **Luna(a492219408)** 编写，Copyright (C) 2026，采用 **GPL-3.0-only**。本声明不对游戏资源或第三方作品重新授权。
+Original EldenRingPostFX code: Copyright (C) 2026 Luna(a492219408), **GPL-3.0-only**. This notice does not relicense game resources or other third-party works.
 
-- **SoulsFormatsNEXT / SoulsFormats**：GPARAM 的公开格式描述与实现为组表、字段表、类型编号和 ValueID/时间布局提供参考。格式实现历史中包括 YabberAvocado、SoulsFormats 和 Natsu 的贡献。本项目重新编写边界检查及变换逻辑，没有链接、嵌入或分发该库。参考：[GPARAM.cs](https://github.com/soulsmods/SoulsFormatsNEXT/blob/master/SoulsFormats/Formats/GPARAM.cs)、[上游 GPL 许可](https://github.com/soulsmods/SoulsFormatsNEXT/blob/master/LICENSE)。
-- **iogus / ioguss**：原 [No Chromatic Aberration no Vignette no Sharpening](https://www.nexusmods.com/eldenring/mods/8570) 是功能对照来源。使用维护者已有本地副本做离线对照，没有复制、内嵌或分发其资源文件，也不声称获得其背书或资产再发布授权。
-- **ModEngine3 贡献者**：提供 Native DLL 加载机制。ME3 是单独安装的运行环境，本包不包含其程序或源码。参考：[ModEngine3](https://github.com/garyttierney/me3)。
-- **Microsoft**：Windows 内存及 DLL API 按官方文档使用；参考 [VirtualAlloc](https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc)、[VirtualProtect](https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualprotect)、[DLL 最佳实践](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-best-practices)。
+## Components present in the binary
 
-运行时只使用 Rust 标准库及 Windows 系统 API，没有第三方 Rust crate。分析阶段使用的 Nuxe、WitchyBND、Oodle 和 Ghidra 不包含在产品中，也不是构建或运行依赖。代码中的短指令特征用于独立定位 GPARAM 导入结构，不含完整游戏函数、着色器或资源。
+The DLL links Rust standard library components. Their licenses, copyright holders and bundled component notices are reproduced in `third_party/Rust-COPYRIGHT-library.html` (source) / `Rust-COPYRIGHT-library.html` (runtime package), copied from the Rust 1.96.0 toolchain used for the release. Preserve that file when redistributing. The project has no third-party Cargo dependencies. Windows system libraries are imported from the operating system and are not bundled.
 
-分发二进制时应随附完整 GPL-3.0 文本，并按 GPL 要求提供与其对应的完整源码。构建脚本会同时产生当前 Git 提交的源码包。
+## References and thanks
+
+- **SoulsFormatsNEXT / SoulsFormats contributors**, including YabberAvocado and Natsu: the public [GPARAM format implementation](https://github.com/soulsmods/SoulsFormatsNEXT/blob/master/SoulsFormats/Formats/GPARAM.cs) informed group/field layout, type numbers and ValueID/time layout. EldenRingPostFX independently implements bounds validation and transformation; it does not link or distribute that library. See the [upstream license](https://github.com/soulsmods/SoulsFormatsNEXT/blob/master/LICENSE).
+- **iogus / ioguss**: [No Chromatic Aberration no Vignette no Sharpening](https://www.nexusmods.com/eldenring/mods/8570) supplied the functional reference. Locally available files were compared offline. No resource files from that mod are copied, embedded or distributed, and no endorsement or asset redistribution permission is claimed.
+- **ModEngine3 contributors**: [ModEngine3](https://github.com/garyttierney/me3) provides native DLL loading. It is installed separately and is not bundled.
+- **Microsoft**: Windows memory and DLL APIs are used according to their published interface. Relevant references include [VirtualAlloc](https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc), [VirtualProtect](https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualprotect) and [DLL best practices](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-best-practices).
+
+Nuxe, WitchyBND, Oodle, Ghidra and LLVM were used for local research only. They are not distributed and are not required to build or run this mod. Short instruction patterns identify the GPARAM import structure; no complete game functions, shaders or resources are embedded.
+
+Distribute the complete GPL text and matching corresponding source with the arrangements required by the license. The packaging script produces a source archive for the exact commit recorded in the binary package's build manifest.
